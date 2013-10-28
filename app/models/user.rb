@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  attr_accessible :about, :password_digest, :username
+  attr_accessible :about, :password, :username
 
   has_many :comments
   has_many :posts
