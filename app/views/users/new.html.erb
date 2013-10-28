@@ -1,4 +1,20 @@
-<h1>User:</h1>
+<h2>Login</h2>
+<% if @login_error %>
+  <%= @login_error %>
+<% end %>
+
+<%= form_for :user, url: login_path do |f| %>
+<%= f.error_messages %>
+  <%= f.text_field :username, placeholder: "username"%>
+  <br>
+  <%= f.text_field :password, placeholder: "password" %>
+  <br>
+  <%= f.submit "Login" %>
+
+<% end %>
+
+
+<h2>Create Account:</h2>
 
 <%= form_for :user, url: users_path do |f| %>
   <%= f.text_field :username, placeholder: "username"%>
