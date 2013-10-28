@@ -1,11 +1,24 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>HackerNewsP3</title>
-  <h1> Hackernews </h1>
+<% if session[:user_id] %>
+ <%= User.find(session[:user_id]).username %>
+ <%= link_to("new post", posts_path) %>
+<% else %> 
+  <%= link_to("login", new_user_path) %>
+<% end %>
 
-</head>
-<body>
+ <h1> Hackernews </h1>
 
-</body>
-</html>
+<ol>
+
+  <% @posts.each do |post| %>
+
+    <li>
+      <p><%= post.title %>  (<%= post.link %>)</p>
+
+  <!-- the zero below needs to be changed -->
+      <p>0 points by <%= User.find(post.user_id).username%>  | comments</p>
+    </li>
+
+  <% end %>
+    
+</ol>
+

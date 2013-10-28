@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  attr_accessible :about, :password_digest, :username
+  attr_accessible :about, :password, :username
 
   has_many :comments
   has_many :posts
@@ -7,5 +7,5 @@ class User < ActiveRecord::Base
   has_many :comment_votes
   
   has_secure_password
-  validates_uniqueness_of :username
+  validates_uniqueness_of :username, :message => '^Invalid User. User already exists in the database'
 end
