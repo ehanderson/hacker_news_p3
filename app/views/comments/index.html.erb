@@ -1,0 +1,21 @@
+<h1>Post: <%= @post.title %></h1>
+
+<%= form_for @comment, url: post_comments_path(@post) do |f| %>
+<%= f.error_messages %>
+  <%= f.text_area :paragraph, placeholder: "comment"%>
+  <br>
+  <%= f.submit "Create Comment" %>
+<% end %>  
+
+
+<ul>
+<% @post.comments.each do |comment| %>
+    <li><%= comment.paragraph %>
+      <%= User.find(comment.user_id).username %>
+    </li>
+<% end %>
+
+</ul>
+  
+  
+

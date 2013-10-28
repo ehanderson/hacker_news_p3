@@ -20,7 +20,7 @@
       </p>
 
   <!-- the zero below needs to be changed -->
-      <p>0 points by <%= User.find(post.user_id).username%>  | comments</p>
+      <p>0 points by <%= User.find(post.user_id).username%>  | <%= link_to "comments", post_comments_path(post) %></p>
     </li>
 
   <% end %>

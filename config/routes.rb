@@ -1,6 +1,8 @@
 HackerNewsP3::Application.routes.draw do
 
 
+  get "comments/index"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -12,7 +14,9 @@ HackerNewsP3::Application.routes.draw do
   post '/login' => 'users#login'
   get '/logout' => 'users#logout'
   
-  resources :posts
+  resources :posts do 
+    resources :comments
+  end  
 
   
 

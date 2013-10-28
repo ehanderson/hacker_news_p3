@@ -10,7 +10,7 @@ class PostsController < ApplicationController
     if @post.save
       # session[:post_id] = @post.id
       redirect_to root_path
-    else 
+    else
       @fail_message = "This isn't working"
       render "index"
     end  
