@@ -12,7 +12,8 @@
   <% @posts.each do |post| %>
 
     <li>
-      <p><%= post.title %>  (<%= post.link %>)</p>
+      <p><%= post.title %>  (<%= post.link %>)
+        <%= button_to("delete", post_path(post), method: :delete, confirm: "Are you sure?") %></p>
 
   <!-- the zero below needs to be changed -->
       <p>0 points by <%= User.find(post.user_id).username%>  | comments</p>
