@@ -1,14 +1,13 @@
-<h1>New Post</h1>
+<h1>Update your Post</h1>
 <% if @fail_message %>
   <%= @fail_message %>
 <% end %>
 
-<%=form_for @post do |f| %>
+<%= form_for @post do |f| %>
 <%= f.error_messages %>
-  <%= f.text_field :title, placeholder: "title"%>
+  <%= f.text_field :title, placeholder: "title" %>
   <br>
   <%= f.text_field :link, placeholder: "link" %>
   <br>
-  <%= f.submit "post" %>
-<% end %>  
-
+  <%= f.submit "update" %>
+<% end %>
