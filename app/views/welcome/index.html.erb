@@ -1,22 +1,19 @@
-<% if session[:user_id] %>
- <%= User.find(session[:user_id]).username %>
- <%= link_to("new post", posts_path) %>
-<% else %> 
-  <%= link_to("login", new_user_path) %>
-<% end %>
 
- <h1> Hackernews </h1>
 
 <ol>
 
   <% @posts.each do |post| %>
 
     <li>
-      <p><%= post.title %>  (<%= post.link %>)
-        <%= button_to("delete", post_path(post), method: :delete, confirm: "Are you sure?") %></p>
+      <p><%= post.title %> (<%= link_to(post.link, post.link) %>)
+        <% if session[:user_id] == post.user_id %>
+          <%= link_to("delete", post_path(post), method: :delete, confirm: "Are you sure?") %>
+          <%= link_to("edit", post_path(post), method: :get) %>
+        <% end %>
+      </p>
 
   <!-- the zero below needs to be changed -->
-      <p>0 points by <%= User.find(post.user_id).username%>  | comments</p>
+      <p>0 points by <%= User.find(post.user_id).username%>  | <%= link_to "comments", post_comments_path(post) %></p>
     </li>
 
   <% end %>

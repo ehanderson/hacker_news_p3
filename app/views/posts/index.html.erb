@@ -3,12 +3,12 @@
   <%= @fail_message %>
 <% end %>
 
-<%=form_for :post do |f| %>
+<%= form_for @post do |f| %>
 <%= f.error_messages %>
   <%= f.text_field :title, placeholder: "title"%>
   <br>
   <%= f.text_field :link, placeholder: "link" %>
   <br>
-  <%= f.submit "post" %>
+  <%= f.submit "Create Post" %>
 <% end %>  
 

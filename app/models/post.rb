@@ -5,4 +5,6 @@ class Post < ActiveRecord::Base
   has_many :comments
   has_many :commentvotes, through: :comments
   has_many :postvotes
+
+  validates_presence_of :link
 end

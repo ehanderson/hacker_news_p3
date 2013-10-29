@@ -6,12 +6,36 @@
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
-<% if session[:user_id] %>
-  <%= link_to("logout", logout_path) %>
-<% end %>
-<body>
+<header>
+  <img src="https://news.ycombinator.com/y18.gif"/>
+  <h2><%= link_to("Hacker News", root_path) %></h2>
+  
+  <ul id="left_list">
+      <li><%= link_to("new", posts_path) %> |</li>
+      <li> comments |</li>
+      <li> ask |</li>
+      <li> jobs |</li>
+      <li> submit </li>
+  </ul>
+ 
+  <ul id="right_list">
+  <% if session[:user_id] %>
+    <li><%= (current_user.username) %> |</li>
+    <li><%= link_to("logout", logout_path) %></li>
+  <% else %> 
+    <%= link_to("login", new_user_path) %>
+  <% end %>
+</ul>
 
-<%= yield %>
+ 
 
+ 
+</header>
+  
+<body >
+  <div id="container">
+
+    <%= yield %>
+  </div>
 </body>
 </html>

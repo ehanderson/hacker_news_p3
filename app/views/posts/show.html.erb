@@ -1,0 +1,13 @@
+<h1>Update your Post</h1>
+<% if @fail_message %>
+  <%= @fail_message %>
+<% end %>
+
+<%= form_for @post do |f| %>
+<%= f.error_messages %>
+  <%= f.text_field :title %>
+  <br>
+  <%= f.text_field :link %>
+  <br>
+  <%= f.submit "update" %>
+<% end %>
