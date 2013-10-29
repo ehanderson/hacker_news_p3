@@ -3,7 +3,7 @@
   <%= @fail_message %>
 <% end %>
 
-<%=form_for @post do |f| %>
+<%= form_for @post do |f| %>
 <%= f.error_messages %>
   <%= f.text_field :title, placeholder: "title"%>
   <br>

@@ -1,21 +1,14 @@
-<% if session[:user_id] %>
- <%= User.find(session[:user_id]).username %>
- <%= link_to("new post", posts_path) %>
-<% else %> 
-  <%= link_to("login", new_user_path) %>
-<% end %>
 
- <h1> Hackernews </h1>
 
 <ol>
 
   <% @posts.each do |post| %>
 
     <li>
-      <p><%= post.title %>  (<%= post.link %>)
+      <p><%= post.title %> (<%= link_to(post.link, post.link) %>)
         <% if session[:user_id] == post.user_id %>
-          <%= button_to("delete", post_path(post), method: :delete, confirm: "Are you sure?") %>
-          <%= button_to("edit", post_path(post), method: :get) %>
+          <%= link_to("delete", post_path(post), method: :delete, confirm: "Are you sure?") %>
+          <%= link_to("edit", post_path(post), method: :get) %>
         <% end %>
       </p>
 
